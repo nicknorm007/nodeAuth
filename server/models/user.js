@@ -7,6 +7,7 @@ const ROLE_OWNER = require('../constants').ROLE_OWNER;
 const ROLE_ADMIN = require('../constants').ROLE_ADMIN;
 
 const Schema = mongoose.Schema;
+mongoose.Promise = global.Promise;
 
 //= ===============================
 // User Schema
@@ -30,16 +31,7 @@ const UserSchema = new Schema({
     type: String,
     enum: [ROLE_MEMBER, ROLE_CLIENT, ROLE_OWNER, ROLE_ADMIN],
     default: ROLE_MEMBER
-  },
-  stripe: {
-    customerId: { type: String },
-    subscriptionId: { type: String },
-    lastFour: { type: String },
-    plan: { type: String },
-    activeUntil: { type: Date }
-  },
-  resetPasswordToken: { type: String },
-  resetPasswordExpires: { type: Date }
+  }
 },
   {
     timestamps: true
