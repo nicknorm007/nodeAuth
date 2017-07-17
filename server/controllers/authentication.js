@@ -31,9 +31,11 @@ exports.login = function (req, res, next) {
 exports.register = function (req, res, next) {
   // Check for registration errors
   const email = req.body.email;
-  const firstName = req.body.firstName;
-  const lastName = req.body.lastName;
+  const firstName = req.body.firstname;
+  const lastName = req.body.lastname;
   const password = req.body.password;
+
+  console.log(email);
 
   // Return error if no email provided
   if (!email) {
